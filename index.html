@@ -8,16 +8,29 @@
 <body>
 <div id="app">
     <div>
-    <h1 v-bind:title="menu">{{title}}</h1>
-    <ul>
-        <li v-for="todo in items">{{todo}} </li>
-    </ul>
+    <h1 >{{title}}</h1>
+<!--    <ul>-->
+<!--        <li v-for="item in items">-->
+<!--            {{item.text}}-->
+<!--            <div v-if="item.checked">Checked</div>-->
+<!--            <button @click="item.checked=!item.checked">Toggle</button>-->
+<!--        </li>-->
+<!--    </ul>-->
 
-        <label for="item">
-            <input id="item"type="text" v-model="item">
+<!--        <label for="item">-->
+<!--            <input id="item"type="text" v-model="item">-->
+<!--        </label>-->
+
+<!--        <button @click="items.push(item)">Add item</button>-->
+
+        <label for="price">
+            <input type="number" v-model="price" id="price" >
         </label>
+        <hr>
+        <div>Price : {{moneyFormat(price)}}</div>
+        <div>Tax : {{moneyFormat(tax)}}</div>
+        <div>Total :{{moneyFormat(total)}}</div>
 
-        <button @click="items.push(item)">Add item</button>
     </div>
 </div>
 
