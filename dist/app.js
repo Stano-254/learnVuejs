@@ -12561,14 +12561,17 @@ module.exports = g;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
-  data: {
+  data: _defineProperty({
     title: 'vue js seem fun',
-    content: 'way more fun to code this ',
-    menu: 'my menu data here'
-  }
+    // content:'way more fun to code this ',
+    // menu:'my menu data here'
+    items: ''
+  }, "items", ['item1', 'item2'])
 });
 
 /***/ }),
