@@ -1,31 +1,33 @@
 import Vue from "vue";
-new Vue({
-    el:'#app',
-    data: {
-        title : 'vue js seem fun',
-        items:[
-            {title:'Title 1',description:'this is description for heading 1'}            {text:'item2',checked:true},
-            {title:'Title 2',description:'this is description for heading 2'}            {text:'item2',checked:true},
-            {title:'Title 3',description:'this is description for heading 3'}            {text:'item2',checked:true},
-            {text:'item3',checked:false},
+Vue.component('accordion', {
+    props: ['item'],
 
-            ],
-        price:10
+    template:
+        `
+    <div>
+       <p>{{item.title }}</p>
+       <p @click="toggle=!toggle">Details</p>
+       <p v-if="toggle">{{item.description }}</p>
+     </div>
+     `,
+    data: function () {
+        return{ toggle:false,}
 
-    },
-    computed: {
-        tax:function(){
-            return parseFloat(this.price*0.09)
-        } ,
-        total:function(){
-            return parseFloat(this.price) + this.tax
-        },
-
-    },
-    methods:{
-        moneyFormat:function (price) {
-            return '$' + price
-        }
     }
 
+});
+
+new Vue({
+    el: '#app',
+    data: {
+
+        items: [
+            {id:1,  title: 'Title 1', description: 'this is description for heading 1'},
+            {id:2, title: 'Title 3', description: 'this is description for heading 3'},{title: 'Title 1', description: 'this is description for heading 1'},
+            {id:3, title: 'Title 2', description: 'this is description for heading 2'},
+            {id:5, title: 'Title 3', description: 'this is description for heading 3'},{title: 'Title 1', description: 'this is description for heading 1'},
+            {id:6, title: 'Title 2', description: 'this is description for heading 2'},
+            {id:7, title: 'Title 3', description: 'this is description for heading 3'},
+        ]
+    }
 });
