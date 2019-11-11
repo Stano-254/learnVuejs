@@ -9,6 +9,9 @@
 <div id="app">
     <div>
     <accordion v-for="item in items" :key="item.id" :item="item"></accordion>
+
+    <hr>
+    <list></list>
     </div>
 </div>
 
@@ -19,3 +22,9 @@
 </script>
 </body>
 </html>
+<script>
+    import List from "./src/components/List";
+    export default {
+        components: {List}
+    }
+</script>
