@@ -1,19 +1,17 @@
 import Vue from "vue";
-import Accordion from "./components/Accordion.vue";
-import List from "./components/List";
+window.axios=require('axios');
 new Vue({
     el: '#app',
-    components: {
-        Accordion,
-        List,
+     components: {
+
+     },
+    mounted:function(){
+        axios.get('https://jsonplaceholder.typicode.com/todos/1/posts')
+            .then(response=>this.posts=response.data)
+            .catch(err=>this.posts=[{title:'no posts found'}])
+            .finally(console.log('request processed'))
     },
     data: {
-
-        items: [
-            {id:1,  title: 'Title 1', description: 'this is description for heading 1'},
-            {id:2, title: 'Title 3', description: 'this is description for heading 3'},            {id:5, title: 'Title 3', description: 'this is description for heading 3'},{title: 'Title 1', description: 'this is description for heading 1'},
-            {id:6, title: 'Title 2', description: 'this is description for heading 2'},
-            {id:7, title: 'Title 3', description: 'this is description for heading 3'},
-        ]
-    }
+        posts:null
+     },
 });
